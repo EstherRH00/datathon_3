@@ -2,6 +2,13 @@
 
 Deploy de la web (això és una xuleta per esther del futur)
 
-### `gh-pages -b main -d build`
+`npm install --save gh-pages`
 
-deployd [here](https://estherrh00.github.io/datathon_3/)
+`gh-pages -b main -d build`
+
+`npm run deploy`
+
+`gh-pages -d build`
+
+
+deployed [here](https://estherrh00.github.io/datathon_3/)
