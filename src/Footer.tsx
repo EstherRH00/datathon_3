@@ -7,7 +7,7 @@ const Footer: React.FC = () =>
   return (
     <>
       <hr className="h-px my-8 border-0 bg-green-300"/>
-      <p className="text-lg pb-2.5">
+      <p className="text-xl pb-2.5">
         Credit:
       </p>
       <ul className="pt-2 pl-2 list-none marker:text-green-600">
