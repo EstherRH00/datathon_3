@@ -8,6 +8,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/datathon_3" element={<MainPage />} />
+        <Route path="/datathon_3/howTo" element={<ExplanationPage />} />
       </Routes>
     </Router>
   );
