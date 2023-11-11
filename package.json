@@ -2,7 +2,7 @@
   "name": "datathon_3",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://EstherRH00.github.io/datathon_3",
+  "homepage": "https://estherrh00.github.io/datathon_3",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
