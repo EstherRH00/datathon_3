@@ -7,7 +7,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<MainPage />} />
+        <Route path="/datathon_3" element={<MainPage />} />
       </Routes>
     </Router>
   );
