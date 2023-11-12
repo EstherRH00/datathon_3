@@ -16,7 +16,7 @@ const Footer: React.FC = () =>
             <a href="https://github.com/MiquelAlberti2" target="_blank" rel="noreferrer">
               <img className="rounded bg-green-300 h-5 mr-2" src={git} alt="Coding Beauty logo"></img>
             </a>
-            Miquel Alberti
+            Miquel Albertí
           </div>
         </li>
         <li>

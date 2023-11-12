@@ -40,6 +40,7 @@ function Explanation() {
         <li><span className="font-bold">ORIGEN:</span> Where the order was placed as Region_ID - Hospital_ID -
           Department_ID
         </li>
+        <li>TODO</li>
       </ul>
       <p className="pt-2 text-ml">
         During the data exploration, we found some interesting properties that we want to highlight:
@@ -179,7 +180,7 @@ function Explanation() {
         Below these lines we show one plot that exemplifies what we have just described, and all of the plots can be found
         in the notebook.
       </p>
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-2">
         <CorrCard image={require("./images/E65159.PNG")}
                   text={"Total amount of E65159 bought each month of each year."}/>
       </div>
@@ -187,7 +188,7 @@ function Explanation() {
         Expiration date approximation
       </p>
       <p className="pt-2 text-ml">
-        We will try to find se
+
       </p>
       <hr className="h-px my-8 border-0 bg-green-300"/>
       <h1 className="text-3xl py-2.5">Model training and prediction</h1>
