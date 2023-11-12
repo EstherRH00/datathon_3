@@ -11,86 +11,9 @@ import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import {useEffect, useState} from "react";
 
+import UseReadCsv, {RowData} from "./UseReadCsv";
 
-interface PredictedItem {
-  productID: string;
-  amount: string;
-  date: number;
-}
-
-interface RowData {
-  category_ID: string;
-  amount: number;
-  prediction: PredictedItem[];
-}
-
-function useCreateData2 (category_ID: string, amount: number) {
-
-  const [data, setData] = useState<RowData | null>(null);
-
-  useEffect(() => {
-    // Path to your CSV file
-    const csvFilePath = './Out tables/B_placeholder.csv';
-
-    const fetchData = async () => {
-      try {
-        const response = await fetch(csvFilePath);
-        const text = await response.text();
-
-        // Parse CSV data manually
-        const rows = text.split('\n').map((line) => line.split(','));
-        const headers = rows[0];
-
-        const predictedItems: PredictedItem[] = rows.slice(1).map((row) => {
-          return {
-            productID: row[headers.indexOf('ID')],
-            amount: row[headers.indexOf('AMOUNT')],
-            date: parseFloat(row[headers.indexOf('DATE')]),
-          };
-        });
-
-        // Set the data state
-        setData({
-          category_ID: category_ID,
-          amount: amount,
-          prediction: predictedItems,
-        });
-      } catch (error) {
-        console.error('Error fetching or parsing CSV file:', error);
-      }
-    };
-
-    fetchData();
-  }, [category_ID, amount]);
-
-  return data;
-}
-
-
-
-function createData(
-  category_ID: string,
-  amount: number,
-) {
-  return {
-    category_ID,
-    amount,
-    history: [
-      {
-        date: '2020-01-05',
-        customerId: '11091700',
-        amount: 3,
-      },
-      {
-        date: '2020-01-02',
-        customerId: 'Anonymous',
-        amount: 1,
-      },
-    ],
-  };
-}
 
 function Row(props: { row: RowData }) {
   const { row } = props;
@@ -110,7 +33,7 @@ function Row(props: { row: RowData }) {
           </IconButton>
         </TableCell>
         <TableCell align="right" style={{ color: '#86efac' }}>
-          {row.category_ID}
+          {row.categoryID}
         </TableCell>
         <TableCell align="right" style={{ color: '#86efac' }}>{row.amount}</TableCell>
       </TableRow>
@@ -131,12 +54,12 @@ function Row(props: { row: RowData }) {
                 </TableHead>
                 <TableBody>
                   {row.prediction.map((historyRow) => (
-                    <TableRow key={historyRow.date}>
+                    <TableRow key={historyRow.DATE}>
                       <TableCell component="th" scope="row" style={{ color: '#86efac' }}>
-                        {historyRow.date}
+                        {historyRow.ID}
                       </TableCell>
-                      <TableCell style={{ color: '#86efac' }}>{historyRow.productID}</TableCell>
-                      <TableCell align="right" style={{ color: '#86efac' }}>{historyRow.amount}</TableCell>
+                      <TableCell style={{ color: '#86efac' }}>{historyRow.AMOUNT}</TableCell>
+                      <TableCell align="right" style={{ color: '#86efac' }}>{historyRow.DATE}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -152,31 +75,23 @@ function Row(props: { row: RowData }) {
 
 
 export default function ProductsTable() {
-  const rows = [
-    useCreateData2('B', 159),
-    useCreateData2('C', 237),
-    useCreateData2('E', 262),
-    useCreateData2('F', 305),
-  ];
-
+  const aux = UseReadCsv();
+  console.log("aux", aux)
   return (
     <TableContainer className="max-h-60 w-full border rounded border-green-300 overflow-scroll">
-      <Table aria-label="collapsible table" >
-        <TableHead >
+      <Table aria-label="collapsible table">
+        <TableHead>
           <TableRow>
-            <TableCell />
-            <TableCell align="right" style={{ color: '#86efac' }}>Category</TableCell>
-            <TableCell align="right" style={{ color: '#86efac' }}>Total amount</TableCell>
+            <TableCell/>
+            <TableCell align="right" style={{color: '#86efac'}}>Category</TableCell>
+            <TableCell align="right" style={{color: '#86efac'}}>Total amount</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            row === null ? (
-              <Row key="ERROR" row={{category_ID: "ERROR", amount: 0, prediction: []}} />
-            ) : (
-              <Row key={row.category_ID} row={row} />
-            )
-          ))}
+          <Row key="B" row={aux.B}/>
+          <Row key="C" row={aux.C}/>
+          <Row key="E" row={aux.E}/>
+          <Row key="F" row={aux.F}/>
         </TableBody>
       </Table>
     </TableContainer>
