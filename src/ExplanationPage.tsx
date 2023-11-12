@@ -249,7 +249,74 @@ function Explanation() {
       </div>
       <hr className="h-px my-8 border-0 bg-green-300" />
       <h1 className="text-3xl py-2.5">Model training and prediction</h1>
-      <p className="pt-2 text-ml">[PLACEHOLDER]</p>
+      <h1 className="text-3xl py-2.5">SARIMAX</h1>
+      <p className="pt-2 text-ml">
+        After thorough exploration of the data and preparing the dataset with
+        information obtained from pre-processing, we opted to employ a
+        statistical model designed for predicting time series data, known as
+        SARIMAX (Seasonal AutoRegressive Integrated Moving Average with
+        eXogenous regressors).
+      </p>
+
+      <p className="pt-2 text-ml">
+        This model comprises three main components:
+      </p>
+      <ul className="pt-2 pl-4 list-disc marker:text-green-600">
+        <li>
+          The autoregressive element, which establishes a relationship between
+          current values and past values (lags).
+        </li>
+        <li>
+          The moving average element, assuming that the prediction error is a
+          linear combination of past predicted errors.
+        </li>
+        <li>
+          The integrated component, indicating that the original values of the
+          series have been replaced by the differences between consecutive
+          values (this differencing process can be executed multiple times).
+        </li>
+      </ul>
+      <p className="pt-2 text-ml">
+        Additionally, SARIMAX models incorporate seasonal patterns and exogenous
+        variables, aligning well with our forecasting objectives. For instance,
+        products related to winter diseases may experience peak demand during
+        the winter season.
+      </p>
+
+      <p className="pt-2 text-ml">
+        In our SARIMA model, we followed this approach:
+      </p>
+      <ul className="pt-2 pl-4 list-disc marker:text-green-600">
+        <li>
+          endog: The observed time-series process y. We computed a moving
+          average and sliding window for each timestep.
+        </li>
+        <li>
+          Number of timesteps: We used the minimum value of the expiry column
+          for each product.
+        </li>
+      </ul>
+
+      <h1 className="text-3xl py-2.5">How to compute the endog?</h1>
+      <p className="pt-2 text-ml">
+        To calculate the moving average, we implemented the "Tales algorithm,"
+        which involves summing up all the data points during a specific period
+        and dividing the sum by the number of time periods. In cases where there
+        are two orders in the same sliding window,
+      </p>
+
+      <h1 className="text-3xl py-2.5">Input for the SARIMAX model:</h1>
+      <ul className="pt-2 pl-4 list-disc marker:text-green-600">
+        <li>
+          A matrix of size 48xn, with: Rows representing the 48 different
+          products. Columns representing the amounts ordered for each product.
+        </li>
+        <li>
+          Exogenous variables: price, tgl, and tipocompra. Although not directly
+          involved in the prediction, these variables can be used to determine
+          moments when the product is more affordable, for instance.
+        </li>
+      </ul>
 
       <Footer />
     </div>
