@@ -1,8 +1,10 @@
 {
   "files": {
-    "main.css": "/datathon_3/static/css/main.cbe91d34.css",
-    "main.js": "/datathon_3/static/js/main.344e30cf.js",
+    "main.css": "/datathon_3/static/css/main.10945968.css",
+    "main.js": "/datathon_3/static/js/main.8c5a2217.js",
     "static/media/E_corr.PNG": "/datathon_3/static/media/E_corr.97b1def9b6a32ad3723c.PNG",
+    "static/media/average_department.PNG": "/datathon_3/static/media/average_department.c70dc6160f35e2b6276c.PNG",
+    "static/media/average_hospital.PNG": "/datathon_3/static/media/average_hospital.ba46ef294549cff3eb7e.PNG",
     "static/media/BF_corr.PNG": "/datathon_3/static/media/BF_corr.0e9073e42693f9c3ae3c.PNG",
     "static/media/E65159.PNG": "/datathon_3/static/media/E65159.f2f0890706a061f5e057.PNG",
     "static/media/F_corr.PNG": "/datathon_3/static/media/F_corr.edcf15484fd80349687d.PNG",
@@ -12,11 +14,11 @@
     "static/media/left_land.png": "/datathon_3/static/media/left_land.7945ea77b90451f8773a.png",
     "static/media/pin_hospital.png": "/datathon_3/static/media/pin_hospital.fa8f4fd966f04bf67dc8.png",
     "index.html": "/datathon_3/index.html",
-    "main.cbe91d34.css.map": "/datathon_3/static/css/main.cbe91d34.css.map",
-    "main.344e30cf.js.map": "/datathon_3/static/js/main.344e30cf.js.map"
+    "main.10945968.css.map": "/datathon_3/static/css/main.10945968.css.map",
+    "main.8c5a2217.js.map": "/datathon_3/static/js/main.8c5a2217.js.map"
   },
   "entrypoints": [
-    "static/css/main.cbe91d34.css",
-    "static/js/main.344e30cf.js"
+    "static/css/main.10945968.css",
+    "static/js/main.8c5a2217.js"
   ]
 }
