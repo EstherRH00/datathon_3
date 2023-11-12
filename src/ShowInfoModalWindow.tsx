@@ -18,7 +18,7 @@ const DeleteAccountModalWindow: React.FC<DeleteAccountModalWindowProps> = ({
   const header = (
     <div className="flex items-start justify-between p-3 rounded-t">
       <h3 className="text-2xl text-letter-color font-semibold">
-        Prediction for hospital {setCSVInfo}
+        Prediction for hospital {setCSVInfo.substring(0, setCSVInfo.length-3)}
       </h3>
     </div>
   );

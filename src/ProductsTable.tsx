@@ -53,7 +53,7 @@ function Row(props: { row: RowData }) {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {row.prediction.map((historyRow) => (
+                  {row.prediction.slice(0, Math.ceil(row.prediction.length/2)).map((historyRow) => (
                     <TableRow key={historyRow.DATE}>
                       <TableCell component="th" scope="row" style={{ color: '#86efac' }}>
                         {historyRow.ID}
@@ -72,10 +72,12 @@ function Row(props: { row: RowData }) {
   );
 }
 
+interface ProductsTableProps {
+  csvInfo: string;
+}
 
-
-export default function ProductsTable() {
-  const aux = UseReadCsv();
+export default function ProductsTable({ csvInfo }: ProductsTableProps) {
+  const aux = UseReadCsv(csvInfo);
   console.log("aux", aux)
   return (
     <TableContainer className="max-h-60 w-full border rounded border-green-300 overflow-scroll">

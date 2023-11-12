@@ -21,7 +21,7 @@ interface ReadyToRow{
   F: RowData
 }
 
-const useReadCSV = () => {
+const useReadCSV = (csvInfo: string) => {
   const [result, setResult] = useState<ReadyToRow>({
     B: {categoryID: "B", amount: 0, prediction: []},
     C: {categoryID: "C", amount: 0, prediction: []},
@@ -29,7 +29,9 @@ const useReadCSV = () => {
     F: {categoryID: "F", amount: 0, prediction: []}
   })
   const getCSV = () => {
-    Papa.parse("/datathon_3/hospital1.csv", {
+    const c = csvInfo === ""? "hospital1.csv" : "hospital1.csv"
+
+    Papa.parse(`/datathon_3/tables/${c}`, {
       header: true,
       download: true,
       skipEmptyLines: true,
