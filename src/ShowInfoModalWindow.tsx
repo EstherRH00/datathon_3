@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import ModalWindow from "./ModalWindow";
 import ProductsTable from "./ProductsTable";
@@ -6,23 +6,26 @@ import ProductsTable from "./ProductsTable";
 interface DeleteAccountModalWindowProps {
   showModal: boolean;
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setCSVInfo: string;
 }
 
 const DeleteAccountModalWindow: React.FC<DeleteAccountModalWindowProps> = ({
   showModal,
   setShowModal,
+  setCSVInfo,
 }) => {
+
   const header = (
     <div className="flex items-start justify-between p-3 rounded-t">
       <h3 className="text-2xl text-letter-color font-semibold">
-        Prediction for hospital ...
+        Prediction for hospital {setCSVInfo}
       </h3>
     </div>
   );
 
   const body = (
     <div className="relative p-2 w-[700px]">
-      <ProductsTable />
+      <ProductsTable csvInfo={setCSVInfo} />
     </div>
   );
 
