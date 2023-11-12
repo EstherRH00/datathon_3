@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import ModalWindow from "./ModalWindow";
+import ProductsTable from "./ProductsTable";
 
 interface DeleteAccountModalWindowProps {
   showModal: boolean;
@@ -12,28 +13,23 @@ const DeleteAccountModalWindow: React.FC<DeleteAccountModalWindowProps> = ({
   setShowModal,
 }) => {
   const header = (
-    <div className="flex items-start justify-between p-5 rounded-t">
+    <div className="flex items-start justify-between p-3 rounded-t">
       <h3 className="text-2xl text-letter-color font-semibold">
-        Are you sure you want to delete the account permanently?
+        Prediction for hospital ...
       </h3>
-      <button className="bg-transparent" onClick={() => setShowModal(false)}>
-        <span className="bg-transparent text-letter-color text-2xl">×</span>
-      </button>
     </div>
   );
 
   const body = (
-    <div className="relative p-6 flex">
-      <p className="w-1/2 my-4 text-letter-color text-lg leading-relaxed">
-        This action cannot be undone and all your data will be lost.
-      </p>
+    <div className="relative p-2 w-[700px]">
+      <ProductsTable />
     </div>
   );
 
   const footer = (
-    <div className="flex items-center justify-end p-6 rounded-b">
+    <div className="flex items-center justify-end rounded-b p-3">
       <Button
-        className="w-1/6 text-secondary-color background-mark-color font-bold uppercase px-6 py-2 text-sm border-secondary-color mr-1 mb-1 ease-linear transition-all"
+        className="w-1/6 text-green-300 font-bold uppercase px-6 py-2 text-sm border-green-300 mr-1 mb-1 ease-linear transition-all"
         onClick={() => setShowModal(false)}
       >
         Close
